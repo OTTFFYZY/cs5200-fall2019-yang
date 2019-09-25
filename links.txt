@@ -1,0 +1,3 @@
+http://cs5200fall2019yang-env.px3hck9smk.us-east-2.elasticbeanstalk.com/
+http://cs5200fall2019yang-env.px3hck9smk.us-east-2.elasticbeanstalk.com/api/hello/string
+http://cs5200fall2019yang-env.px3hck9smk.us-east-2.elasticbeanstalk.com/api/hello/object
