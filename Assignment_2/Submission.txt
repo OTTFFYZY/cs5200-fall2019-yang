@@ -1,0 +1,9 @@
+Database:
+
+the hostname: cs5200-fall2019-yang.c4ygrfkurtig.us-east-2.rds.amazonaws.com
+username: admin
+password: qwert12345
+port: 3306
+
+
+Github Link: https://github.com/OTTFFYZY/cs5200-fall2019-yang/tree/master/Assignment_2
