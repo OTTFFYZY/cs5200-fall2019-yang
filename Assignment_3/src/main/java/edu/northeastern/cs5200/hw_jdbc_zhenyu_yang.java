@@ -10,12 +10,12 @@ public class hw_jdbc_zhenyu_yang {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		DeveloperImpl developerImpl = new DeveloperImpl();
-		UserImpl userImpl = new UserImpl();
-		WebsiteImpl websiteImpl = new WebsiteImpl();
-		RoleImpl roleImpl = new RoleImpl();
-		PageImpl pageImpl =new PageImpl();
-		WidgetImpl widgetImpl = new WidgetImpl();
+		DeveloperDao developerDao = new DeveloperImpl();
+		UserDao userDao = new UserImpl();
+		WebsiteDao websiteDao = new WebsiteImpl();
+		RoleDao roleDao = new RoleImpl();
+		PageDao pageDao =new PageImpl();
+		WidgetDao widgetDao = new WidgetImpl();
 		
 		// create person
 		Developer alice = new Developer("4321rewq", 12, "Alice", "Wonder", "alice", "alice", "alice@wonder.com", null);
@@ -23,15 +23,15 @@ public class hw_jdbc_zhenyu_yang {
         Developer charlie = new Developer("6543ytre", 34, "Charles", "Garcia", "charlie", "charlie",  "chuch@garcia.com", null);
         
         
-        developerImpl.createDeveloper(alice);
-        developerImpl.createDeveloper(bob);
-        developerImpl.createDeveloper(charlie);
+        developerDao.createDeveloper(alice);
+        developerDao.createDeveloper(bob);
+        developerDao.createDeveloper(charlie);
         
         User dan = new User(45, "dan", "dan", "Dan", "Martin", "dan@martin.com", null);
         User ed = new User(56, "ed", "ed", "Ed", "Karaz", "ed@kar.com", null);
         
-        userImpl.createUser(dan);
-        userImpl.createUser(ed);
+        userDao.createUser(dan);
+        userDao.createUser(ed);
         
         
         // create website
@@ -44,37 +44,37 @@ public class hw_jdbc_zhenyu_yang {
         Website gizmodo = new Website(678,"Gizmodo", "a design, technology, science and science fiction website that also writes articles on politics", gradeDate, gradeDate, 4322345);
         
         
-        websiteImpl.createWebsiteForDeveloper(alice.getId(), facebook);
-        websiteImpl.createWebsiteForDeveloper(bob.getId(), twitter);
-        websiteImpl.createWebsiteForDeveloper(charlie.getId(), wikipedia);
-        websiteImpl.createWebsiteForDeveloper(alice.getId(), cnn);       
-        websiteImpl.createWebsiteForDeveloper(bob.getId(), cnet);
-        websiteImpl.createWebsiteForDeveloper(charlie.getId(), gizmodo);
+        websiteDao.createWebsiteForDeveloper(alice.getId(), facebook);
+        websiteDao.createWebsiteForDeveloper(bob.getId(), twitter);
+        websiteDao.createWebsiteForDeveloper(charlie.getId(), wikipedia);
+        websiteDao.createWebsiteForDeveloper(alice.getId(), cnn);       
+        websiteDao.createWebsiteForDeveloper(bob.getId(), cnet);
+        websiteDao.createWebsiteForDeveloper(charlie.getId(), gizmodo);
         
         
-        roleImpl.assignWebsiteRole(alice.getId(), facebook.getId(), "owner");
-        roleImpl.assignWebsiteRole(bob.getId(), facebook.getId(), "editor");
-        roleImpl.assignWebsiteRole(charlie.getId(), facebook.getId(), "admin");
+        roleDao.assignWebsiteRole(alice.getId(), facebook.getId(), "owner");
+        roleDao.assignWebsiteRole(bob.getId(), facebook.getId(), "editor");
+        roleDao.assignWebsiteRole(charlie.getId(), facebook.getId(), "admin");
         
-        roleImpl.assignWebsiteRole(bob.getId(), twitter.getId(), "owner");
-        roleImpl.assignWebsiteRole(charlie.getId(), twitter.getId(), "editor");
-        roleImpl.assignWebsiteRole(alice.getId(), twitter.getId(), "admin");
+        roleDao.assignWebsiteRole(bob.getId(), twitter.getId(), "owner");
+        roleDao.assignWebsiteRole(charlie.getId(), twitter.getId(), "editor");
+        roleDao.assignWebsiteRole(alice.getId(), twitter.getId(), "admin");
         
-        roleImpl.assignWebsiteRole(charlie.getId(), wikipedia.getId(), "owner");
-        roleImpl.assignWebsiteRole(alice.getId(), wikipedia.getId(), "editor");
-        roleImpl.assignWebsiteRole(bob.getId(), wikipedia.getId(), "admin");
+        roleDao.assignWebsiteRole(charlie.getId(), wikipedia.getId(), "owner");
+        roleDao.assignWebsiteRole(alice.getId(), wikipedia.getId(), "editor");
+        roleDao.assignWebsiteRole(bob.getId(), wikipedia.getId(), "admin");
         
-        roleImpl.assignWebsiteRole(alice.getId(), cnn.getId(), "owner");
-        roleImpl.assignWebsiteRole(bob.getId(), cnn.getId(), "editor");
-        roleImpl.assignWebsiteRole(charlie.getId(), cnn.getId(), "admin");
+        roleDao.assignWebsiteRole(alice.getId(), cnn.getId(), "owner");
+        roleDao.assignWebsiteRole(bob.getId(), cnn.getId(), "editor");
+        roleDao.assignWebsiteRole(charlie.getId(), cnn.getId(), "admin");
         
-        roleImpl.assignWebsiteRole(bob.getId(), cnet.getId(), "owner");
-        roleImpl.assignWebsiteRole(charlie.getId(), cnet.getId(), "editor");
-        roleImpl.assignWebsiteRole(alice.getId(), cnet.getId(), "admin");
+        roleDao.assignWebsiteRole(bob.getId(), cnet.getId(), "owner");
+        roleDao.assignWebsiteRole(charlie.getId(), cnet.getId(), "editor");
+        roleDao.assignWebsiteRole(alice.getId(), cnet.getId(), "admin");
         
-        roleImpl.assignWebsiteRole(charlie.getId(), gizmodo.getId(), "owner");
-        roleImpl.assignWebsiteRole(alice.getId(), gizmodo.getId(), "editor");
-        roleImpl.assignWebsiteRole(bob.getId(), gizmodo.getId(), "admin");
+        roleDao.assignWebsiteRole(charlie.getId(), gizmodo.getId(), "owner");
+        roleDao.assignWebsiteRole(alice.getId(), gizmodo.getId(), "editor");
+        roleDao.assignWebsiteRole(bob.getId(), gizmodo.getId(), "admin");
         
         
         // create page;
@@ -89,31 +89,31 @@ public class hw_jdbc_zhenyu_yang {
         Page profile = new Page(567, "Profile", "Users can configure their personal information", startDate, endDate, 567878);
 
      
-        pageImpl.createPageForWebsite(cnet.getId(), home);
-        pageImpl.createPageForWebsite(gizmodo.getId(), about);
-        pageImpl.createPageForWebsite(wikipedia.getId(), contact);
-        pageImpl.createPageForWebsite(cnn.getId(), preferences);
-        pageImpl.createPageForWebsite(cnet.getId(), profile);
+        pageDao.createPageForWebsite(cnet.getId(), home);
+        pageDao.createPageForWebsite(gizmodo.getId(), about);
+        pageDao.createPageForWebsite(wikipedia.getId(), contact);
+        pageDao.createPageForWebsite(cnn.getId(), preferences);
+        pageDao.createPageForWebsite(cnet.getId(), profile);
         
-        roleImpl.assignPageRole(alice.getId(), home.getId(), "editor");
-        roleImpl.assignPageRole(bob.getId(), home.getId(), "reviewer");
-        roleImpl.assignPageRole(charlie.getId(), home.getId(), "writer");
+        roleDao.assignPageRole(alice.getId(), home.getId(), "editor");
+        roleDao.assignPageRole(bob.getId(), home.getId(), "reviewer");
+        roleDao.assignPageRole(charlie.getId(), home.getId(), "writer");
         
-        roleImpl.assignPageRole(bob.getId(), about.getId(), "editor");
-        roleImpl.assignPageRole(charlie.getId(), about.getId(), "reviewer");
-        roleImpl.assignPageRole(alice.getId(), about.getId(), "writer");
+        roleDao.assignPageRole(bob.getId(), about.getId(), "editor");
+        roleDao.assignPageRole(charlie.getId(), about.getId(), "reviewer");
+        roleDao.assignPageRole(alice.getId(), about.getId(), "writer");
         
-        roleImpl.assignPageRole(charlie.getId(), contact.getId(), "editor");
-        roleImpl.assignPageRole(alice.getId(), contact.getId(), "reviewer");
-        roleImpl.assignPageRole(bob.getId(), contact.getId(), "writer");
+        roleDao.assignPageRole(charlie.getId(), contact.getId(), "editor");
+        roleDao.assignPageRole(alice.getId(), contact.getId(), "reviewer");
+        roleDao.assignPageRole(bob.getId(), contact.getId(), "writer");
         
-        roleImpl.assignPageRole(alice.getId(), preferences.getId(), "editor");
-        roleImpl.assignPageRole(bob.getId(), preferences.getId(), "reviewer");
-        roleImpl.assignPageRole(charlie.getId(), preferences.getId(), "writer");
+        roleDao.assignPageRole(alice.getId(), preferences.getId(), "editor");
+        roleDao.assignPageRole(bob.getId(), preferences.getId(), "reviewer");
+        roleDao.assignPageRole(charlie.getId(), preferences.getId(), "writer");
         
-        roleImpl.assignPageRole(bob.getId(), profile.getId(), "editor");
-        roleImpl.assignPageRole(charlie.getId(), profile.getId(), "reviewer");
-        roleImpl.assignPageRole(alice.getId(), profile.getId(), "writer");
+        roleDao.assignPageRole(bob.getId(), profile.getId(), "editor");
+        roleDao.assignPageRole(charlie.getId(), profile.getId(), "reviewer");
+        roleDao.assignPageRole(alice.getId(), profile.getId(), "writer");
 
         // create widget
         HeadingWidget head123 = new HeadingWidget(1, "head123", 0, 0, null, null, "Welcome", 0, 0);
@@ -130,12 +130,12 @@ public class hw_jdbc_zhenyu_yang {
         video456.setPage(456);
         
     
-        widgetImpl.createWidgetForPage(123, head123);
-        widgetImpl.createWidgetForPage(234, post234);
-        widgetImpl.createWidgetForPage(345, head345);
-        widgetImpl.createWidgetForPage(345, intro456);
-        widgetImpl.createWidgetForPage(345, image345);
-        widgetImpl.createWidgetForPage(456, video456);
+        widgetDao.createWidgetForPage(123, head123);
+        widgetDao.createWidgetForPage(234, post234);
+        widgetDao.createWidgetForPage(345, head345);
+        widgetDao.createWidgetForPage(345, intro456);
+        widgetDao.createWidgetForPage(345, image345);
+        widgetDao.createWidgetForPage(456, video456);
         
         System.out.println("Create Success!");
         
@@ -144,28 +144,28 @@ public class hw_jdbc_zhenyu_yang {
 		ArrayList<Phone> charliePhones = new ArrayList<>();
 		charliePhones.add(new Phone(0, "333-444-5555", 1, charlie.getId()));
 		charlie.setPhones(charliePhones);
-		developerImpl.updateDeveloper(charlie.getId(), charlie);
+		developerDao.updateDeveloper(charlie.getId(), charlie);
 		
 		// updatge widget
 		head345.setOrder(3);
 		intro456.setOrder(1);
 		image345.setOrder(2);
-		widgetImpl.updateWidget(head345.getId(),head345);
-		widgetImpl.updateWidget(intro456.getId(),intro456);
-		widgetImpl.updateWidget(image345.getId(),image345);
+		widgetDao.updateWidget(head345.getId(),head345);
+		widgetDao.updateWidget(intro456.getId(),intro456);
+		widgetDao.updateWidget(image345.getId(),image345);
 		
 		// update page
-		Collection<Page> pages = pageImpl.findPagesForWebsite(cnet.getId());
+		Collection<Page> pages = pageDao.findPagesForWebsite(cnet.getId());
 		for(Page page : pages) {
 			page.setTitle("CNET - " + page.getTitle());
-			pageImpl.updatePage(page.getId(), page);
+			pageDao.updatePage(page.getId(), page);
 		}
 		
 		// update roles
-		roleImpl.deleteWebsiteRole(bob.getId(), cnet.getId(), "owner");
-		roleImpl.deleteWebsiteRole(charlie.getId(), cnet.getId(), "editor");
-		roleImpl.assignPageRole(bob.getId(), cnet.getId(), "editor");
-		roleImpl.assignPageRole(charlie.getId(), cnet.getId(), "owner");
+		roleDao.deleteWebsiteRole(bob.getId(), cnet.getId(), "owner");
+		roleDao.deleteWebsiteRole(charlie.getId(), cnet.getId(), "editor");
+		roleDao.assignPageRole(bob.getId(), cnet.getId(), "editor");
+		roleDao.assignPageRole(charlie.getId(), cnet.getId(), "owner");
 		
 		System.out.println("Update Success");
 		
@@ -173,10 +173,10 @@ public class hw_jdbc_zhenyu_yang {
 		ArrayList<Address> aliceAddresses = alice.getAddresses();
 		if(aliceAddresses != null) 
 			aliceAddresses.removeIf(x -> x.getPrimary() == 1);
-		developerImpl.updateDeveloper(alice.getId(), alice);
+		developerDao.updateDeveloper(alice.getId(), alice);
 		
 		// delete widget
-		Collection<Widget> widgets = widgetImpl.findAllWidgets();
+		Collection<Widget> widgets = widgetDao.findAllWidgets();
 		int maxOrder = -1, wid = -1;
 		for(Widget w : widgets) {
 			if(maxOrder < w.getOrder()) {
@@ -185,10 +185,10 @@ public class hw_jdbc_zhenyu_yang {
 			}
 		}
 		if(wid != -1)
-			widgetImpl.deleteWidget(wid);
+			widgetDao.deleteWidget(wid);
 		
 		// delete page
-		pages = pageImpl.findPagesForWebsite(wikipedia.getId());
+		pages = pageDao.findPagesForWebsite(wikipedia.getId());
 		Date latest = null;
 		int pid = -1;
 		for(Page p : pages) {
@@ -198,23 +198,23 @@ public class hw_jdbc_zhenyu_yang {
 			}
 		}
 		//System.out.println("11111111111111111111111 " + pid);
-		for(Widget w : widgetImpl.findWidgetsForPage(pid)) {
-			widgetImpl.deleteWidget(w.getId());
+		for(Widget w : widgetDao.findWidgetsForPage(pid)) {
+			widgetDao.deleteWidget(w.getId());
 		}
-		roleImpl.deletePageRoleByPage(pid);
-		pageImpl.deletePage(pid);
+		roleDao.deletePageRoleByPage(pid);
+		pageDao.deletePage(pid);
 		
 		// delete website
-		pages = pageImpl.findPagesForWebsite(cnet.getId());
+		pages = pageDao.findPagesForWebsite(cnet.getId());
 		for(Page p : pages) {
-			for(Widget w : widgetImpl.findWidgetsForPage(p.getId())) {
-				widgetImpl.deleteWidget(w.getId());
+			for(Widget w : widgetDao.findWidgetsForPage(p.getId())) {
+				widgetDao.deleteWidget(w.getId());
 			}
-			roleImpl.deletePageRoleByPage(p.getId());
-			pageImpl.deletePage(p.getId());
+			roleDao.deletePageRoleByPage(p.getId());
+			pageDao.deletePage(p.getId());
 		}
-		roleImpl.deleteWebsiteRoleByWebsite(cnet.getId());
-		websiteImpl.deleteWebsite(cnet.getId());
+		roleDao.deleteWebsiteRoleByWebsite(cnet.getId());
+		websiteDao.deleteWebsite(cnet.getId());
 		
 		System.out.println("Delete Success");
 		System.out.println("All Done!");

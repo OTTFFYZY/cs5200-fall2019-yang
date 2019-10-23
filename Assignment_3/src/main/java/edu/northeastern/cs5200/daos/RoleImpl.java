@@ -92,6 +92,7 @@ public class RoleImpl implements RoleDao {
 		}
 	}
 	
+	@Override
 	public void deletePageRoleByPage(int pageId) {
 		// TODO Auto-generated method stub
 		try {
@@ -108,6 +109,7 @@ public class RoleImpl implements RoleDao {
 		}
 	}
 	
+	@Override
 	public void deleteWebsiteRoleByWebsite(int websiteId) {
 		// TODO Auto-generated method stub
 		try {
